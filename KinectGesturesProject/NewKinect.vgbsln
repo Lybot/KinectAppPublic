@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<GestureBuilderFile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<SolutionFile>
+		<Header>
+			<Date>2020-03-30</Date>
+			<Time>17:19:26.9376302+07:00</Time>
+			<Version>1</Version>
+			<Type>Solution</Type>
+			<ID>b38c8e9e-c787-4c11-b6e0-69c2670385b5</ID>
+		</Header>
+		<Solution_Data>
+			<Files>
+				<Name />
+				<Content>
+					<Items>
+						<File>Clap.vgbproj</File>
+					</Items>
+					<Items>
+						<File>Clap.a.vgbproj</File>
+					</Items>
+					<Items>
+						<File>LeftClenching.vgbproj</File>
+					</Items>
+					<Items>
+						<File>LeftClenching.a.vgbproj</File>
+					</Items>
+					<Items>
+						<File>LeftSwipe.vgbproj</File>
+					</Items>
+					<Items>
+						<File>LeftSwipe.a.vgbproj</File>
+					</Items>
+					<Items>
+						<File>RightClenching.vgbproj</File>
+					</Items>
+					<Items>
+						<File>RightClenching.a.vgbproj</File>
+					</Items>
+					<Items>
+						<File>D:/Kinect Studio/Repository/RightSwipe.vgbproj</File>
+					</Items>
+					<Items>
+						<File>D:/Kinect Studio/Repository/RightSwipe.a.vgbproj</File>
+					</Items>
+				</Content>
+			</Files>
+		</Solution_Data>
+		<UI_State />
+		<Attributes />
+	</SolutionFile>
+</GestureBuilderFile>

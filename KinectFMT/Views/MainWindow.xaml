@@ -1,0 +1,75 @@
+﻿<Window x:Class="KinectFMT.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:model ="clr-namespace:KinectFMT.Models"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        Cursor="{Binding Cursor}"
+        mc:Ignorable="d"
+        Width="{Binding WidthScreen, Mode=TwoWay}"
+        Height="{Binding HeightScreen, Mode=TwoWay}"
+        Title="MainWindow" WindowState="Maximized" WindowStyle="None">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Closing">
+            <i:EventTrigger.Actions>
+                <i:InvokeCommandAction Command="{Binding Closing}"></i:InvokeCommandAction>
+            </i:EventTrigger.Actions>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Window.InputBindings>
+        <KeyBinding Key="F2" CommandParameter="F5" Command="{Binding KeyPressed}"></KeyBinding>
+    </Window.InputBindings>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Viewbox Grid.ColumnSpan="3">
+            <Grid x:Name="CompositeImage">
+                <Image Source="{Binding BackgroundSource}"/>
+                <Image Source="{Binding BodyBitmap}" Stretch="Fill"/>
+                <ItemsControl x:Name="ItemsControl" ItemsSource="{Binding Canvas}">
+                    <ItemsControl.Resources>
+                        <DataTemplate DataType="{x:Type model:ArModel}">
+                            <Image Source="{Binding Source}" Width="{Binding Width}" Height="{Binding Height}"/>
+                        </DataTemplate>
+                    </ItemsControl.Resources>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <Canvas/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemContainerStyle>
+                        <Style TargetType="ContentPresenter">
+                            <Setter Property="Canvas.Left" Value="{Binding Left}"/>
+                            <Setter Property="Canvas.Top" Value="{Binding Top}"/>
+                        </Style>
+                    </ItemsControl.ItemContainerStyle>
+                </ItemsControl>
+                <Image x:Name="TableImage" Source="{Binding TableSource}"/>
+                <Image Source="{Binding Demo}"/>
+            </Grid>
+        </Viewbox>
+        <Image x:Name="TimeImage" Source="{Binding NumberSource}" Grid.Column="1" VerticalAlignment="Center" Width="100" Height="100"/>
+        <Ellipse Fill="White" Grid.Column="1" Height="200" Width="0" Margin="0,25,0,0" VerticalAlignment="Top"/>
+        <Ellipse Fill="White" Grid.Column="0" Height="0" Width="200" Margin="25,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        <Ellipse Fill="White" Grid.Column="2" Height="0" Width="200" Margin="0,0,25,0" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <Button Template="{StaticResource CircleButton}" Margin="50"  Grid.Column="0"  Width="150" VerticalAlignment="Center" HorizontalAlignment="Left" Background="Transparent" BorderThickness="0">
+            <Button.Content>
+                <Image Source="{Binding LeftSource, IsAsync=True}"></Image>
+            </Button.Content>
+        </Button>
+        <Button Template="{StaticResource CircleButton}" Margin="50"  Grid.Column="2" HorizontalAlignment="Right" Width="150" VerticalAlignment="Center" Background="Transparent" BorderThickness="0">
+            <Button.Content>
+                <Image Source="{Binding RightSource, IsAsync=True}"></Image>
+            </Button.Content>
+        </Button>
+        <Button Template="{StaticResource CircleButton}"  Margin="0,50,0,0"  Grid.Column="1" Width="150" Height="150" VerticalAlignment="Top" Background="Transparent"  BorderThickness="0">
+            <Button.Content>
+                <Image Source="{Binding CenterSource, IsAsync=True}"></Image>
+            </Button.Content>
+        </Button>
+    </Grid>
+</Window>

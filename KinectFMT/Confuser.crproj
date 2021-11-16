@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project baseDir="obj\Release" 
+outputDir="..\Release" xmlns="http://confuser.codeplex.com">
+  <rule preset="none" pattern="true">
+    <protection id="anti debug" />
+    <protection id="anti dump" />
+    <protection id="anti ildasm" />
+    <protection id="anti tamper" />
+  </rule>
+  <module path="KinectFMT.exe" />
+  <probePath>..\..\bin\Release</probePath>
+</project>

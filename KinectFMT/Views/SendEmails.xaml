@@ -1,0 +1,24 @@
+﻿<Window x:Class="KinectFMT.Views.SendEmails"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KinectFMT.Views"
+        mc:Ignorable="d"
+        Title="SendEmails" Height="600" Width="1080">
+    <Grid>
+        <StackPanel>
+            <DataGrid x:Name="DataGrid" ItemsSource="{Binding Emails}" IsReadOnly="True" CanUserAddRows="False" ColumnWidth="*" Height="450">
+            <!--<DataGrid.Columns>
+                <DataGridTextColumn Width="*" ></DataGridTextColumn>
+                <DataGridTextColumn Width="*"></DataGridTextColumn>
+                <DataGridCheckBoxColumn Width="100"></DataGridCheckBoxColumn>
+            </DataGrid.Columns>-->
+        </DataGrid>
+            <Grid>
+                <Button Width="100" Height="40" Content="{DynamicResource SendEmails}" Margin="30" HorizontalAlignment="Center" Click="SendEmail"></Button>
+                <Button Width="100" Height="40" Content="{DynamicResource ClearTable}" Margin="30" HorizontalAlignment="Right" Click="ClearTable"></Button>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Window>
